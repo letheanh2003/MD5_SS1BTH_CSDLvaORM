@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>Hello cac ban</h1>
+<a th:href="@{/add}">Thêm mới</a>
+<table border="1" cellpadding="10" cellspacing="0">
+    <thead>
+    <tr><th>ID</th>
+        <th>NAME</th>
+        <th>AGE</th>
+        <th>SEX</th>
+        <th>ADDRESS</th>
+        <th colspan="2">Action</th>
+    </tr>
+
+    </thead>
+    <tbody>
+    <th:block th:each="stu:${list}">
+        <tr>
+            <td th:text="${stu.getId()}"></td>
+            <td th:text="${stu.getName()}"></td>
+            <td th:text="${stu.getAge()}"></td>
+            <td th:text="${stu.isSex()?'Nam':'Nữ'}"></td>
+            <td th:text="${stu.getAddress()}"></td>
+            <td><a th:href="@{|/edit/${stu.getId()}|}">edit</a></td>
+            <td><a th:href="@{|/delete/${stu.getId()}|}">Delete</a></td>
+        </tr>
+    </th:block>
+
+    </tbody>
+</table>
+</body>
+</html>

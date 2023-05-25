@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>Thêm mới</h1>
+<form th:action="@{/create}" th:object="${student}" method="post" >
+
+    <input type="text" th:field="*{name}" placeholder="Nhap name">
+    <input type="text" th:field="*{age}" placeholder="Nhap age">
+    <select th:field="*{sex}">
+        <option th:value="true">Nam</option>
+        <option th:value="false">Nữ</option>
+    </select>
+    <input type="text" th:field="*{address}" placeholder="Nhap address">
+    <button type="submit">Add</button>
+
+</form>
+</body>
+</html>
